@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  frontend:
+    build: .
+    image: carrental-frontend:latest
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
